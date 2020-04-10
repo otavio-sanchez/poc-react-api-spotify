@@ -20,8 +20,8 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({ template: './public/inde
 module.exports = {
     entry: './src/index.tsx',
     output: {
-        filename: '[name].[chunkhash].js',
-        chunkFilename: '[chunkhash].bundle.js',
+        filename: '[name].[hash].js',
+        chunkFilename: '[hash].bundle.js',
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js'],
