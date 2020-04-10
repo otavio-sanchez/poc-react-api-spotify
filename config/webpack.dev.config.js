@@ -1,34 +1,30 @@
-
 const Webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const envDSV = require('./env/env.dsv.json');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const envHMG = require('./env/env.hmg.json');
 
-
-const env = Object.keys(envDSV).map((key) => {
-
+const env = Object.keys(envHMG).map((key) => {
     return {
-        [key]: JSON.stringify(envDSV[key])
-    }
-
-})
+        [key]: JSON.stringify(envHMG[key]),
+    };
+});
 
 const DefinePlugin = new Webpack.DefinePlugin({
     'process.env': {
-        NODE_ENV: JSON.stringify('development'),
-        ...Object.assign({}, ...env) 
+        NODE_ENV: JSON.stringify('homolog'),
+        ...Object.assign({}, ...env),
     },
 });
 
-const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({ template: './public/index.html' })
+const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({ template: './public/index.html' });
 
 module.exports = {
-    entry: "./src/index.tsx",
+    entry: './src/index.tsx',
     output: {
-        filename: "bundle.js"
+        filename: '[name].[chunkhash].js',
+        chunkFilename: '[chunkhash].bundle.js',
     },
-    devtool: "source-map",
     resolve: {
-        extensions: [".ts", ".tsx", '.js']
+        extensions: ['.ts', '.tsx', '.js'],
     },
     module: {
         rules: [
@@ -37,16 +33,29 @@ module.exports = {
                 exclude: /node_modules/,
                 use: [
                     {
-                        loader: "ts-loader"
-                    }
-                ]
+                        loader: 'ts-loader',
+                    },
+                ],
             },
             {
-                enforce: "pre",
+                enforce: 'pre',
                 test: /\.js$/,
-                loader: "source-map-loader"
-            }
-        ]
+                loader: 'source-map-loader',
+            },
+        ],
     },
-    plugins: [DefinePlugin, HTMLWebpackPluginConfig]
+    optimization: {
+        minimize: true,
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    chunks: 'initial',
+                    test: 'vendor',
+                    name: 'vendor',
+                    enforce: true,
+                },
+            },
+        },
+    },
+    plugins: [DefinePlugin, HTMLWebpackPluginConfig],
 };

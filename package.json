@@ -4,16 +4,24 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --hot",
+    "start": "npm run lint && webpack-dev-server --inline --hot",
     "build": "webpack",
-    "build-hmg": "webpack"
+    "build-hmg": "webpack",
+    "lint": "tsc --noEmit && eslint **/*.{js,ts,tsx} --quiet --fix"
   },
   "author": "otavio sanchez",
   "license": "ISC",
   "devDependencies": {
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.19.0",
     "html-webpack-plugin": "^4.2.0",
+    "prettier": "^2.0.4",
     "source-map-loader": "^0.2.4",
     "ts-loader": "^6.2.2",
     "typescript": "^3.8.3",

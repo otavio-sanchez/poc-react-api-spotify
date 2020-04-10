@@ -1,13 +1,7 @@
-import  * as React from 'react'
+import * as React from 'react';
 
 const App = (): JSX.Element => {
+    return <> Front-End Challenge </>;
+};
 
- return (
-    <> Front-End Challenge </>
- )
-    
-}
-    
-
-
-export default App
+export default App;
