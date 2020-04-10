@@ -2,10 +2,11 @@
   "name": "front-end-challenge",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "webpack-dev-server --inline --hot",
-    "build": "webpack"
+    "build": "webpack",
+    "build-hmg": "webpack"
   },
   "author": "otavio sanchez",
   "license": "ISC",

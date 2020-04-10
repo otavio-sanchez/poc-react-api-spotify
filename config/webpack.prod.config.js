@@ -1,11 +1,18 @@
 const Webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const envPROD = require('./env/env.prod.json');
+
+const env = Object.keys(envPROD).map((key) => { return {
+    [key]: JSON.stringify(envPROD[key])
+}})
 
 const DefinePlugin = new Webpack.DefinePlugin({
     'process.env': {
         NODE_ENV: JSON.stringify('production'),
+        ...Object.assign({}, ...env) 
     },
 });
+
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({ template: './public/index.html' })
 
 module.exports = {

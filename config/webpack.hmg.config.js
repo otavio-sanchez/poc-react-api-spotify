@@ -1,20 +1,14 @@
-
 const Webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const envDSV = require('./env/env.dsv.json');
+const envHMG = require('./env/env.hmg.json');
 
-
-const env = Object.keys(envDSV).map((key) => {
-
-    return {
-        [key]: JSON.stringify(envDSV[key])
-    }
-
-})
+const env = Object.keys(envHMG).map((key) => { return {
+    [key]: JSON.stringify(envHMG[key])
+}})
 
 const DefinePlugin = new Webpack.DefinePlugin({
     'process.env': {
-        NODE_ENV: JSON.stringify('development'),
+        NODE_ENV: JSON.stringify('homolog'),
         ...Object.assign({}, ...env) 
     },
 });
@@ -24,9 +18,9 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({ template: './public/inde
 module.exports = {
     entry: "./src/index.tsx",
     output: {
-        filename: "bundle.js"
+        filename: '[name].[chunkhash].js',
+        chunkFilename: '[chunkhash].bundle.js',
     },
-    devtool: "source-map",
     resolve: {
         extensions: [".ts", ".tsx", '.js']
     },
@@ -48,5 +42,18 @@ module.exports = {
             }
         ]
     },
+    optimization: {
+        minimize: true,
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    chunks: "initial",
+                    test: "vendor",
+                    name: "vendor",
+                    enforce: true
+                }
+            }
+        }
+    },
     plugins: [DefinePlugin, HTMLWebpackPluginConfig]
-};
+}
