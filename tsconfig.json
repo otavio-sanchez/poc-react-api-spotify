@@ -6,6 +6,10 @@
         "module": "commonjs",
         "target": "es6",
         "jsx": "react",
-        "types": ["node"]
+        "types": ["node"],
+        "typeRoots": ["./src"]
     },
+    "files": [
+		"typings/index.d.ts"
+	]
 }
