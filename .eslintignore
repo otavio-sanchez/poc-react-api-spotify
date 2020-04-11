@@ -4,3 +4,4 @@ bower.json
 dist/
 config/
 public/
+**/__tests__/

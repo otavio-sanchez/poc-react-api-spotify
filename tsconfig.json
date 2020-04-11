@@ -6,7 +6,7 @@
         "module": "commonjs",
         "target": "es6",
         "jsx": "react",
-        "types": ["node"],
+        "types": ["node", "jest"],
         "typeRoots": ["./src"]
     },
     "files": [
