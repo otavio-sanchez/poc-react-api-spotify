@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Jest from 'jest';
 import { shallow } from 'enzyme';
-import { Title } from '../../Title'
+import Title from '../Title'
 
 describe('Test Title component', () => {
     it('renders', () => {

@@ -4,4 +4,4 @@ import { Props } from './types';
 
 const Title = (props: Props) => <TitleLarge>{props.text}</TitleLarge>;
 
-export { Title };
+export default Title;
