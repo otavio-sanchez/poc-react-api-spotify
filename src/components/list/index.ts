@@ -1,3 +1,4 @@
 import Albums from './Albums';
+import Musics from './Musics';
 
-export { Albums };
+export { Albums, Musics };

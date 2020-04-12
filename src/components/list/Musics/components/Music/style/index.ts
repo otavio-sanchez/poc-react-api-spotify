@@ -4,7 +4,6 @@ import colors from '../../../../../../assets/theme/colors';
 const Content = styled.article`
     width: 100%;
     cursor: pointer;
-
     &:hover {
         transition: opacity ease-in-out 0.5s;
         opacity: 50%;

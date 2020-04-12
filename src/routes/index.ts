@@ -16,7 +16,7 @@ const routes: ConfigRoute[] = [
     },
     {
         component: Albums,
-        path: routesPath.albums,
+        path: `${routesPath.albums}/:id`,
         exact: true,
         id: 'Albums',
     },
