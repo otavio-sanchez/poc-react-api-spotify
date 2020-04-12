@@ -9,6 +9,7 @@ const Row = ({
     columnsMobile,
     spacingRow,
     gridTemplateColumns,
+    spacingColumn,
 }: Props): JSX.Element => {
     return (
         <RowContent
@@ -17,6 +18,7 @@ const Row = ({
             columnsMobile={columnsMobile}
             spacingRow={spacingRow}
             gridTemplateColumns={gridTemplateColumns}
+            spacingColumn={spacingColumn}
         >
             {children}
         </RowContent>

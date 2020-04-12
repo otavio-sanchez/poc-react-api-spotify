@@ -1,4 +1,4 @@
-import Title from './Title';
+import Text from './Text';
 import Label from './Label';
 
-export { Title, Label };
+export { Text, Label };

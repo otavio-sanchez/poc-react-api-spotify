@@ -16,39 +16,31 @@ const RowContent = styled.div<{
     columnsMobile?: number;
     spacingRow?: number;
     gridTemplateColumns?: string;
+    spacingColumn?: number;
 }>`
   width: 100%;
   position: relative;
   display: grid;
   grid-column-gap: 10px;
   ${({ gridTemplateColumns }): string => gridTemplateColumns && `grid-template-columns: ${gridTemplateColumns};`}
-  grid-row-gap: ${({ spacingRow }): string =>
-      spacingRow
-          ? `
-      ${spacingRow}px
-  `
-          : '10px'};
-
+  grid-row-gap: ${({ spacingRow }): string => spacingRow ? `${spacingRow}px` : '10px'};
+  grid-column-gap: ${({ spacingColumn }): string => spacingColumn ? `${spacingColumn}px` : '10px'}; 
   ${({ columnsDesktop }): string =>
-      columnsDesktop
-          ? `@media (min-width: ${sizes.screen.desktopWidth + 1}px) {
+        columnsDesktop
+            ? `@media (min-width: ${sizes.screen.desktopWidth + 1}px) {
       grid-template-columns: ${generateColumns(columnsDesktop)};
-  }`
-          : ''}
+  }` : ''}
 
   ${({ columnsTablet }): string =>
-      columnsTablet
-          ? `@media (min-width: ${sizes.screen.tabletWidth + 1}px) and (max-width: ${sizes.screen.desktopWidth + 1}px) {
+        columnsTablet
+            ? `@media (min-width: ${sizes.screen.tabletWidth + 1}px) and (max-width: ${sizes.screen.desktopWidth + 1}px) {
       grid-template-columns: ${generateColumns(columnsTablet)};
-  }`
-          : ''}
-
+  }` : ''}
   ${({ columnsMobile }): string =>
-      columnsMobile
-          ? `@media (max-width: ${sizes.screen.tabletWidth + 1}px) {
+        columnsMobile
+            ? `@media (max-width: ${sizes.screen.tabletWidth + 1}px) {
       grid-template-columns: ${generateColumns(columnsMobile)};
-  }`
-          : ''}
+  }` : ''}
 `;
 
 export { RowContent };

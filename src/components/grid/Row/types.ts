@@ -5,4 +5,5 @@ export interface Props {
     columnsMobile?: number;
     spacingRow?: number;
     gridTemplateColumns?: string;
+    spacingColumn?: number;
 }
