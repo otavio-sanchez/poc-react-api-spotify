@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { checkExpiresToken } from './access';
 
-export const getSearch = async (value: string, type: string, limit?: number): Promise<any> => {
+export const getAlbums = async (id: string): Promise<any> => {
     try {
         await checkExpiresToken();
 
@@ -16,9 +16,10 @@ export const getSearch = async (value: string, type: string, limit?: number): Pr
             Authorization: `Bearer ${token}`,
         };
 
-        const response = await axios.get(`${url}/search?q=${value}&type=${type}${limit ? `&limit=${limit}` : ''}`, {
+        const response = await axios.get(`${url}/albums/${id}`, {
             headers,
         });
+
         return response.data;
     } catch (err) {
         return {

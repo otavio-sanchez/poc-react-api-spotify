@@ -1,6 +1,7 @@
-import { Music } from '../../types';
-
-export interface Props extends Music {
-    index: number;
+export interface Props {
+    id: string;
+    name: string;
+    time: number;
+    trackNumber: number;
     onClick: Function;
 }

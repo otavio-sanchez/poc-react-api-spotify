@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import colors from '../../../../../../assets/theme/colors';
 
-const Content = styled.article`
+const Content = styled.div`
+    transition: opacity ease-in-out 0.5s;
     width: 100%;
     cursor: pointer;
     &:hover {
@@ -18,10 +19,19 @@ const Image = styled.div<{ src: string; height?: number }>`
 `;
 
 const Infos = styled.div`
-    text-align: center;
-    padding: 20px 5%;
+    text-align: start;
+    padding: 20px 0;
     width: 100%;
     box-sizing: border-box;
 `;
 
-export { Content, Image, Infos };
+const TrackNumber = styled.span`
+    padding-right: 20px;
+`;
+
+const Time = styled.span`
+    padding-left: 20px;
+    float: right;
+`;
+
+export { Content, Image, Infos, TrackNumber, Time };

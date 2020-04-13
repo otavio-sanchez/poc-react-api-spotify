@@ -19,4 +19,9 @@ const Regular = styled.span<{ type?: string }>`
     color: ${colors.main};
 `;
 
-export { TitleLarge, SubTitle, Regular };
+const Default = styled.span<{ type?: string }>`
+    font-size: ${sizes.font.fontSizeMedium}px;
+    color: ${colors.light};
+`;
+
+export { TitleLarge, SubTitle, Regular, Default };

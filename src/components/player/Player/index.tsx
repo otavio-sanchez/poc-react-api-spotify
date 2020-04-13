@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { Text } from '../../../../typography';
-import { Content, Image, Infos } from './style';
+import { Text } from '../../../components/typography';
+import { Content, Image, Infos, Audio } from './style';
 import { Props } from './types';
-import { Image as ImageType, Artist } from '../../types';
+import { Image as ImageType, Artist } from '../../list/Albums/types';
 
-const Album = ({ images, name, height, artists, onClick }: Props): JSX.Element => {
+const Player = ({ images, name, artists, onClick, preview }: Props): JSX.Element => {
     const urlImage = (imagesList: ImageType[]): string => {
         if (imagesList && imagesList.length > 0) {
             return imagesList[0].url;
@@ -23,7 +23,8 @@ const Album = ({ images, name, height, artists, onClick }: Props): JSX.Element =
 
     return (
         <Content onClick={(): Function => onClick()}>
-            <Image src={urlImage(images)} height={height} />
+            <Image src={urlImage(images)} />
+
             <Infos>
                 <Text type="subtitle">
                     <>{name}</>
@@ -31,9 +32,11 @@ const Album = ({ images, name, height, artists, onClick }: Props): JSX.Element =
                 <Text type="regular">
                     <>{nameArtist(artists)}</>
                 </Text>
+
+                {preview && <Audio src={preview} preload="auto" controls autoPlay controlsList="nodownload" />}
             </Infos>
         </Content>
     );
 };
 
-export default Album;
+export default Player;

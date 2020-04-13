@@ -1,41 +1,54 @@
 import * as React from 'react';
 import { Props, Album as AlbumType } from './types';
 import { Text } from '../../typography';
-import { Container, Row } from '../../grid';
+import { Container, Row, Col } from '../../grid';
+import { Loading } from '../../../components/layout';
 import Album from './components/Album';
 
-const Albums = ({ data, title, height, onClickItem }: Props): JSX.Element => {
+const Albums = ({ data, title, height, onClickItem, loading }: Props): JSX.Element => {
     const onHandlerClick = (album: AlbumType): Function => {
-        console.log('oif');
         return onClickItem(album);
     };
 
     return (
         <>
-            <Text type="title">
-                <> {title} </>
-            </Text>
-            <Container>
-                <Row columnsDesktop={5} columnsTablet={2} columnsMobile={1} spacingRow={30} spacingColumn={30}>
+            {loading ? (
+                <Loading />
+            ) : (
+                <Container>
+                    <Row columnsDesktop={1} columnsTablet={1} columnsMobile={1} spacingRow={30} spacingColumn={30}>
+                        <Col>
+                            <Text type="title">
+                                <> {title} </>
+                            </Text>
+                        </Col>
+                    </Row>
                     {data.length ? (
-                        data.map((album: AlbumType) => (
-                            <Album
-                                artist={album.artist}
-                                id={album.id}
-                                image={album.image}
-                                name={album.name}
-                                height={height}
-                                key={album.id}
-                                onClick={(): Function => onHandlerClick(album)}
-                            />
-                        ))
+                        <Row columnsDesktop={5} columnsTablet={2} columnsMobile={1} spacingRow={30} spacingColumn={30}>
+                            {data.map((album: AlbumType) => (
+                                <Col key={album.id}>
+                                    <Album
+                                        artists={album.artists}
+                                        id={album.id}
+                                        images={album.images}
+                                        name={album.name}
+                                        height={height}
+                                        onClick={(): Function => onHandlerClick(album)}
+                                    />
+                                </Col>
+                            ))}
+                        </Row>
                     ) : (
-                        <Text>
-                            <>Nada encontrado.</>
-                        </Text>
+                        <Row columnsDesktop={1} columnsTablet={1} columnsMobile={1} spacingRow={30} spacingColumn={30}>
+                            <Col>
+                                <Text>
+                                    <>Nada encontrado.</>
+                                </Text>
+                            </Col>
+                        </Row>
                     )}
-                </Row>
-            </Container>
+                </Container>
+            )}
         </>
     );
 };

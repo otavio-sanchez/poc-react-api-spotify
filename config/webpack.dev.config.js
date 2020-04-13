@@ -43,17 +43,6 @@ module.exports = {
                 loader: 'source-map-loader',
             },
             {
-                test: /\.svg$/,
-                use: [
-                  {
-                    loader: '@svgr/webpack',
-                    options: {
-                      configFile: './config/svg.js'
-                    }
-                  }
-                ]
-              },
-            {
                 test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
                 use: [
                     {
@@ -64,7 +53,19 @@ module.exports = {
                         }
                     }
                 ]
-            }
+            },
+            {
+                test: /\.svg$/,
+                use: [
+                  {
+                    loader: '@svgr/webpack',
+                    options: {
+                      configFile: './config/svg.js'
+                    }
+                  }
+                ]
+              },
+           
         ],
 
     },

@@ -3,11 +3,23 @@ export interface Props {
     title: string;
     height?: number;
     onClickItem: Function;
+    loading?: boolean;
+}
+
+export interface Artist {
+    id: string;
+    name: string;
+}
+
+export interface Image {
+    height: number;
+    url: string;
+    width: number;
 }
 
 export interface Album {
-    image: string;
+    images: Image[];
     id: string;
     name: string;
-    artist: string;
+    artists: Artist[];
 }

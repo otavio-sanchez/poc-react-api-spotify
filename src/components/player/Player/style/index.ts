@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import sizes from '../../../../../../assets/theme/sizes';
 
 const Content = styled.article`
     width: 100%;
+    max-width: 400px;
     cursor: pointer;
     transition: opacity ease-in-out 0.5s;
     &:hover {
@@ -11,17 +11,11 @@ const Content = styled.article`
     }
 `;
 
-const Image = styled.div<{ src: string; height?: number }>`
+const Image = styled.div<{ src: string }>`
     width: 100%;
-    height: ${({ height }): number => (height ? height : 250)}px;
-
-    @media (max-width: ${sizes.screen.tabletWidth + 1}px) {
-        height: ${({ height }): number => (height ? height : 500)}px;
-    }
-
+    height: 400px;
     background-image: url('${({ src }): string => src}');
     background-size: cover;
-    background-position: center;
 `;
 
 const Infos = styled.div`
@@ -31,4 +25,8 @@ const Infos = styled.div`
     box-sizing: border-box;
 `;
 
-export { Content, Image, Infos };
+const Audio = styled.audio`
+    margin-top: 30px;
+`;
+
+export { Content, Image, Infos, Audio };

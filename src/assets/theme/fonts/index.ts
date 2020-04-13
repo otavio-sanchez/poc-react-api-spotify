@@ -9,11 +9,11 @@ export default createGlobalStyle`
      font-family: 'Roboto';
      font-style: normal;
      font-weight: 400;
-     src: url('${RobotoEot}'); 
+     src: url('${RobotoEot.default}'); 
      src: local('Roboto'),
-          url('${RobotoEot}?#iefix') format('embedded-opentype'), 
-          url('${RobotoWoffTwo}') format('woff2'), 
-          url('${RobotoWoff}') format('woff'), 
-          url('${RobotoTff}') format('truetype')
+          url('${RobotoEot.default}?#iefix') format('embedded-opentype'), 
+          url('${RobotoWoffTwo.default}') format('woff2'), 
+          url('${RobotoWoff.default}') format('woff'), 
+          url('${RobotoTff.default}') format('truetype')
      }
 `;

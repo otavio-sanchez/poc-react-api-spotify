@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Icon from '../../../../assets/icons/loading.svg'
+import Icon from '../../../../assets/icons/loading.svg';
 
 const Content = styled.div`
     width: 100%;
@@ -15,4 +15,4 @@ const LoadingIcon = styled(Icon)`
     height: 30px;
 `;
 
-export { LoadingIcon, Content }
+export { LoadingIcon, Content };

@@ -13,14 +13,14 @@ const Musics = ({ data, onClickItem }: Props): JSX.Element => {
         <Container>
             <Row>
                 {data.length ? (
-                    data.map((music, index) => (
+                    data.map((music) => (
                         <Music
                             id={music.id}
                             name={music.name}
-                            time={music.time}
-                            key={music.id}
-                            index={index}
+                            time={music.duration_ms}
+                            trackNumber={music.track_number}
                             onClick={(): Function => onHandlerClick(music)}
+                            key={music.id}
                         />
                     ))
                 ) : (

@@ -1,20 +1,25 @@
 import * as React from 'react';
 import { Text } from '../../../../typography';
-import { Content, Infos } from './style';
+import { Content, Infos, TrackNumber, Time } from './style';
 import { Props } from './types';
+import { millisToMinutesAndSeconds } from '../../../../../utils/convertHours';
 
-const Music = ({ name, time, index }: Props): JSX.Element => (
-    <Content>
+const Music = ({ name, time, trackNumber, onClick }: Props): JSX.Element => (
+    <Content onClick={(): Function => onClick()}>
         <Infos>
-            <Text type="regular">
-                <>{index}</>
-            </Text>
-            <Text type="regular">
+            <TrackNumber>
+                <Text type="regular">
+                    <>{trackNumber}.</>
+                </Text>
+            </TrackNumber>
+            <Text type="default">
                 <>{name}</>
             </Text>
-            <Text type="regular">
-                <>{time}</>
-            </Text>
+            <Time>
+                <Text type="regular">
+                    <>{millisToMinutesAndSeconds(time)}</>
+                </Text>
+            </Time>
         </Infos>
     </Content>
 );
