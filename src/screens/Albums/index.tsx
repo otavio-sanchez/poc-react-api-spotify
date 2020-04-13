@@ -7,19 +7,25 @@ import { routesPath } from '../../routes';
 import { getAlbums } from '../../services/album';
 import { Col, Row, Container } from '../../components/grid';
 import { Player } from '../../components/player';
+import { Loading } from '../../components/layout';
 
 const Albums = ({ match, history }: Props): JSX.Element => {
+    const [loading, setLoading] = React.useState(false);
     const [trackList, setTrackList] = React.useState([]);
     const [album, setAlbum] = React.useState(null);
-    const [preview, setPreview]  = React.useState(null);
+    const [preview, setPreview] = React.useState(null);
 
     const requestSoundtrack = async (id: string): Promise<void> => {
+        setLoading(true);
+
         const mainAlbum = await getAlbums(id);
 
         if (mainAlbum.tracks && mainAlbum.tracks.items) {
             setAlbum(mainAlbum);
             setTrackList(mainAlbum.tracks.items);
         }
+
+        setLoading(false);
     };
 
     React.useEffect(() => {
@@ -35,14 +41,16 @@ const Albums = ({ match, history }: Props): JSX.Element => {
     }, []);
 
     const selectMusic = (music: Music): void => {
-        setPreview(music.preview_url)
+        setPreview(music.preview_url);
     };
 
     const play = (): void => {
         console.log('play');
     };
 
-    return (
+    return loading ? (
+        <Loading />
+    ) : (
         <Container>
             <Row columnsMobile={1} columnsTablet={1} columnsDesktop={1}>
                 <Col>
@@ -62,7 +70,7 @@ const Albums = ({ match, history }: Props): JSX.Element => {
                         />
                     )}
                 </Col>
-                <Col align={}>
+                <Col>
                     <Musics data={trackList} onClickItem={(music: Music): void => selectMusic(music)} />
                 </Col>
             </Row>

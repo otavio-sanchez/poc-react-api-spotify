@@ -18,10 +18,14 @@ const Input = styled.input<{ focused?: boolean }>`
     z-index: 1;
     position: relative;
     box-sizing: border-box;
-    font-size: ${sizes.font.fontSizeXLarge}px;
     font-weight: bold;
     color: ${({ focused }): string => (focused ? colors.light : colors.main)};
     background-color: transparent;
+    font-size: ${sizes.font.fontSizeXLarge}px;
+
+    @media (max-width: ${sizes.screen.tabletWidth + 1}px) {
+        font-size: ${sizes.font.fontSizeLarge}px;
+    }
 
     ::placeholder {
         color: ${colors.main};
