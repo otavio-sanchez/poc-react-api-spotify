@@ -6,7 +6,7 @@ import Album from './components/Album';
 
 const Albums = ({ data, title, height, onClickItem }: Props): JSX.Element => {
     const onHandlerClick = (album: AlbumType): Function => {
-        console.log('oif')
+        console.log('oif');
         return onClickItem(album);
     };
 
