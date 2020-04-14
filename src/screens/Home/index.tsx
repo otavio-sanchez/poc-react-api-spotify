@@ -31,7 +31,7 @@ const Home = ({ history }: Props): JSX.Element => {
         const { albums } = await getSearch(value, 'album', 10);
 
         if (albums && albums.items) {
-            dispatch(albumsRecent(albums.items.slice(0, 5)));
+            dispatch(albumsRecent(albums.items));
             setAlbumsList(albums.items);
         }
         setLoading(false);
@@ -50,20 +50,75 @@ const Home = ({ history }: Props): JSX.Element => {
             setTime(
                 setTimeout(() => {
                     request(value);
-                }, 2000),
+                }, 1000),
             );
         }
     };
 
+    const addAccessed = (album: Album): Album[] => {
+        const check = accessed.filter((item: Album) => item.id === album.id);
+        if (check.length) {
+            return accessed;
+        }
+
+        return accessed.concat(album);
+    };
+
     const selectAlbum = (album: Album): void => {
-        dispatch(albumsAccessed(accessed.concat(album)));
+        dispatch(albumsAccessed(addAccessed(album)));
         history.push(`${routesPath.albums}/${nameArtist(album.artists).replace(/\s+/g, '-')}/${album.id}`);
+    };
+
+    const renderAlbumsSearch = (): JSX.Element => {
+        if (isSearch) {
+            return (
+                <Col>
+                    <Albums
+                        loading={loading}
+                        title={`Busca por: ${valueSearch}`}
+                        data={albumsList}
+                        onClickItem={(album: Album): void => selectAlbum(album)}
+                    />
+                </Col>
+            );
+        }
+        return <></>;
+    };
+
+    const renderAlbumsAccessed = (): JSX.Element => {
+        if (!isSearch && accessed.length) {
+            return (
+                <Col>
+                    <Albums
+                        title={`Álbums acessados recentemente`}
+                        data={accessed}
+                        onClickItem={(album: Album): void => selectAlbum(album)}
+                    />
+                </Col>
+            );
+        }
+        return <></>;
+    };
+
+    const renderAlbumsRecent = (): JSX.Element => {
+        if (!isSearch && recent.length) {
+            return (
+                <Col>
+                    <Albums
+                        title={`Álbums buscados recentemente`}
+                        data={recent}
+                        onClickItem={(album: Album): void => selectAlbum(album)}
+                    />
+                </Col>
+            );
+        }
+        return <></>;
     };
 
     return (
         <>
             <Container>
-                <Row spacingRow={50}>
+                <Row spacingRow={60}>
                     <Col>
                         <Form>
                             <TextInput
@@ -76,40 +131,9 @@ const Home = ({ history }: Props): JSX.Element => {
                             />
                         </Form>
                     </Col>
-                    {isSearch ? (
-                        <Col>
-                            <Albums
-                                loading={loading}
-                                title={`Busca por: ${valueSearch}`}
-                                data={albumsList}
-                                onClickItem={(album: Album): void => selectAlbum(album)}
-                            />
-                        </Col>
-                    ) : (
-                        <></>
-                    )}
-                    {!isSearch && recent.length ? (
-                        <Col>
-                            <Albums
-                                title={`Buscas recentes`}
-                                data={recent}
-                                onClickItem={(album: Album): void => selectAlbum(album)}
-                            />
-                        </Col>
-                    ) : (
-                        <></>
-                    )}
-                    {!isSearch && accessed.length ? (
-                        <Col>
-                            <Albums
-                                title={`Acessos recentes`}
-                                data={accessed}
-                                onClickItem={(album: Album): void => selectAlbum(album)}
-                            />
-                        </Col>
-                    ) : (
-                        <></>
-                    )}
+                    {renderAlbumsSearch()}
+                    {renderAlbumsRecent()}
+                    {renderAlbumsAccessed()}
                 </Row>
             </Container>
         </>

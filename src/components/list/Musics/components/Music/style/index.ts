@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-import colors from '../../../../../../assets/theme/colors';
+import styled, { keyframes } from 'styled-components';
 
 const Content = styled.div`
     transition: opacity ease-in-out 0.5s;
@@ -15,7 +14,7 @@ const Image = styled.div<{ src: string; height?: number }>`
     width: 100%;
     height: ${({ height }): number => (height ? height : 250)}px;
     background-image: url('${({ src }): string => src}');
-    background-size: cover;
+    background-size: cover;    
 `;
 
 const Infos = styled.div`

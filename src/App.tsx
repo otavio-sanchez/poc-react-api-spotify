@@ -4,14 +4,8 @@ import { Theme } from './assets/theme';
 import { routes } from './routes';
 import { ConfigRoute } from './routes/types';
 import { Screen } from './components/layout';
-import { createStore } from 'redux';
-import rootReducer from './reducers';
 import { Provider } from 'react-redux';
-
-const store = createStore(
-    rootReducer,
-    (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
-);
+import { store } from './store';
 
 const App = (): JSX.Element => {
     return (

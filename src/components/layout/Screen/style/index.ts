@@ -7,6 +7,7 @@ const ScreenContainer = styled.div`
     min-height: 100vh;
     align-items: start;
     align-content: start;
+    padding-bottom: 50px;
 `;
 
 const ScreenContent = styled.section`
