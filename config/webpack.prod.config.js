@@ -71,6 +71,7 @@ module.exports = {
     optimization: {
         minimize: true,
         splitChunks: {
+            chunks: 'all',
             cacheGroups: {
                 vendor: {
                     chunks: 'initial',

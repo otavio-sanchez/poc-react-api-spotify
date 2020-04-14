@@ -5,7 +5,7 @@
     "main": "src/index.js",
     "scripts": {
         "start": "npm run lint && webpack-dev-server --inline --hot --open",
-        "build": "webpack",
+        "build": "webpack --mode=production",
         "build-hmg": "webpack",
         "lint": "tsc --noEmit && eslint **/*.{js,ts,tsx} --quiet --fix",
         "test": "jest"
