@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import sizes from '../../../../assets/theme/sizes';
-import Icon from '../../../../assets/icons/logo.svg';
+import LogoSpotify from '../../../../assets/icons/logo.svg';
 
 const HeaderContent = styled.header`
     position: relative;
@@ -23,8 +23,5 @@ const Logo = styled.div`
     width: 50px;
 `;
 
-const LogoSpotify = styled(Icon)`
-    width: 100%;
-`;
 
 export { HeaderContent, Logo, LogoSpotify };

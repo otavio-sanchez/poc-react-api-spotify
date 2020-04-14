@@ -13,7 +13,7 @@ const Header = ({ name }: Props): JSX.Element => {
                     <Col align="start-flex">
                         <Logo>
                             <Link to={routesPath.home} title={name}>
-                                <LogoSpotify />
+                                <LogoSpotify width={50} />
                             </Link>
                         </Logo>
                     </Col>

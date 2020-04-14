@@ -1,12 +1,14 @@
 import * as React from 'react';
 import * as Jest from 'jest';
 import { shallow } from 'enzyme';
-import Title from '../Title'
+import Text from '../Text';
 
 describe('Test Title component', () => {
     it('renders', () => {
         const wrapper = shallow(
-            <Title text='Hello' />,
+            <Text type="title">
+                <>Title</>
+            </Text>,
         );
         expect(wrapper.find('h1'));
     });

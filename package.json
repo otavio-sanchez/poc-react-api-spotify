@@ -37,6 +37,7 @@
         "eslint-plugin-react": "^7.19.0",
         "file-loader": "^6.0.0",
         "html-webpack-plugin": "^4.2.0",
+        "identity-obj-proxy": "^3.0.0",
         "jest": "^25.3.0",
         "prettier": "^2.0.4",
         "source-map-loader": "^0.2.4",
@@ -62,6 +63,9 @@
         "styled-components": "^5.1.0"
     },
     "jest": {
+        "moduleNameMapper": {
+            ".+\\.(css|styl|svg|less|sass|scss|png|jpg|ttf|woff|eot|woff2)$": "identity-obj-proxy"
+        },
         "moduleFileExtensions": [
             "ts",
             "tsx",
