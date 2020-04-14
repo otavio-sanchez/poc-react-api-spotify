@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Input, Line, InputWrapper } from './style';
 import { useSpring } from 'react-spring';
 import { Props } from './types';
-import { Label } from '../../texts';
+import { Label } from '../../typography';
 
 const TextInput = ({ label, placeholder, onChange, name, type }: Props): JSX.Element => {
     const [focused, setFocused] = React.useState(false);

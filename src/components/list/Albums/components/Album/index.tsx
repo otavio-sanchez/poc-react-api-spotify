@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text } from '../../../../texts';
+import { Text } from '../../../../typography';
 import { Content, Image, Infos } from './style';
 import { Props } from './types';
 import { nameArtist, urlImage } from '../../../../../utils/infoAlbum';

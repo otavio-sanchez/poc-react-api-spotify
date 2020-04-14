@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text } from '../../../../texts';
+import { Text } from '../../../../typography';
 import { Content, Infos, TrackNumber, Time } from './style';
 import { Props } from './types';
 import { millisToMinutesAndSeconds } from '../../../../../utils/convertHours';
