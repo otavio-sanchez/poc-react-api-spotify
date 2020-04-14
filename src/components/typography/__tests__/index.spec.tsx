@@ -2,51 +2,34 @@ import * as React from 'react';
 import * as Jest from 'jest';
 import { shallow } from 'enzyme';
 import Text from '../Text';
-import Label from '../Label';
 
-describe('Test Typography components', () => {
-    it('render text title', () => {
-        const wrapper = shallow(
-            <Text type="title">
-                <>Title</>
-            </Text>,
-        );
+describe('Typography components', () => {
+    const props = {
+        children: 'text',
+    };
+
+    it('should render text title', () => {
+        const wrapper = shallow(<Text type="title" {...props} />);
         expect(wrapper.find('h1'));
     });
 
-    it('render text default', () => {
-        const wrapper = shallow(
-            <Text type="default">
-                <>Default</>
-            </Text>,
-        );
+    it('should render text default', () => {
+        const wrapper = shallow(<Text type="default" {...props} />);
         expect(wrapper.find('span'));
     });
 
-    it('render text regular', () => {
-        const wrapper = shallow(
-            <Text type="regular">
-                <>Regular</>
-            </Text>,
-        );
+    it('should render text regular', () => {
+        const wrapper = shallow(<Text type="regular" {...props} />);
         expect(wrapper.find('span'));
     });
 
-    it('render text subtitle', () => {
-        const wrapper = shallow(
-            <Text type="subtitle">
-                <>Subtitle</>
-            </Text>,
-        );
+    it('should render text subtitle', () => {
+        const wrapper = shallow(<Text type="subtitle" {...props} />);
         expect(wrapper.find('h2'));
     });
 
-    it('render label', () => {
-        const wrapper = shallow(
-            <Label>
-                <>Label</>
-            </Label>,
-        );
+    it('should render label', () => {
+        const wrapper = shallow(<Text type="label" {...props} />);
         expect(wrapper.find('label'));
     });
 });

@@ -6,8 +6,8 @@ export interface Props {
 export interface Music {
     id: string;
     name: string;
-    time: string;
+    time?: number;
     preview_url: string;
     track_number: number;
-    duration_ms: number;
+    duration_ms?: number;
 }

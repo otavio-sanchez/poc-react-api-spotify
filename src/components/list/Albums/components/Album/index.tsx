@@ -9,12 +9,8 @@ const Album = ({ images, name, height, artists, onClick }: Props): JSX.Element =
         <Content onClick={(): Function => onClick()}>
             <Image src={urlImage(images)} height={height} />
             <Infos>
-                <Text type="subtitle">
-                    <>{name}</>
-                </Text>
-                <Text type="regular">
-                    <>{nameArtist(artists)}</>
-                </Text>
+                <Text type="subtitle">{name}</Text>
+                <Text type="regular">{nameArtist(artists)}</Text>
             </Infos>
         </Content>
     );

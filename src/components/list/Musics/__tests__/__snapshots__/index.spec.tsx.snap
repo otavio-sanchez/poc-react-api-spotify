@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Albums renders without crashing given the required props 1`] = `
+<Fragment>
+  <Container>
+    <Row
+      columnsDesktop={1}
+      columnsMobile={1}
+      columnsTablet={1}
+      spacingColumn={30}
+      spacingRow={30}
+    >
+      <Col>
+        <Text
+          type="title"
+        >
+           
+          Metálica
+           
+        </Text>
+      </Col>
+    </Row>
+    <Row
+      columnsDesktop={5}
+      columnsMobile={1}
+      columnsTablet={2}
+      spacingColumn={30}
+      spacingRow={30}
+    >
+      <Col
+        key="0"
+      >
+        <Album
+          artists={
+            Array [
+              Object {
+                "id": "0",
+                "name": "artist foo",
+              },
+            ]
+          }
+          height={360}
+          id="0"
+          images={
+            Array [
+              Object {
+                "height": 640,
+                "url": "https://i.scdn.co/image/ab67616d0000b273af07dc851962508661bbcfce",
+                "width": 640,
+              },
+              Object {
+                "height": 300,
+                "url": "https://i.scdn.co/image/ab67616d00004851af07dc851962508661bbcfce",
+                "width": 300,
+              },
+              Object {
+                "height": 64,
+                "url": "https://i.scdn.co/image/ab67616d0000b273af07dc851962508661bbcfce",
+                "width": 64,
+              },
+            ]
+          }
+          name="Album foo"
+          onClick={[Function]}
+        />
+      </Col>
+      <Col
+        key="1"
+      >
+        <Album
+          artists={
+            Array [
+              Object {
+                "id": "1",
+                "name": "artist bar",
+              },
+            ]
+          }
+          height={360}
+          id="1"
+          images={
+            Array [
+              Object {
+                "height": 640,
+                "url": "https://i.scdn.co/image/ab67616d0000b273af07dc851962508661bbcfce",
+                "width": 640,
+              },
+              Object {
+                "height": 300,
+                "url": "https://i.scdn.co/image/ab67616d00004851af07dc851962508661bbcfce",
+                "width": 300,
+              },
+              Object {
+                "height": 64,
+                "url": "https://i.scdn.co/image/ab67616d0000b273af07dc851962508661bbcfce",
+                "width": 64,
+              },
+            ]
+          }
+          name="Album bar"
+          onClick={[Function]}
+        />
+      </Col>
+      <Col
+        key="2"
+      >
+        <Album
+          artists={
+            Array [
+              Object {
+                "id": "2",
+                "name": "artist baz",
+              },
+            ]
+          }
+          height={360}
+          id="2"
+          images={
+            Array [
+              Object {
+                "height": 640,
+                "url": "https://i.scdn.co/image/ab67616d0000b273af07dc851962508661bbcfce",
+                "width": 640,
+              },
+              Object {
+                "height": 300,
+                "url": "https://i.scdn.co/image/ab67616d00004851af07dc851962508661bbcfce",
+                "width": 300,
+              },
+              Object {
+                "height": 64,
+                "url": "https://i.scdn.co/image/ab67616d0000b273af07dc851962508661bbcfce",
+                "width": 64,
+              },
+            ]
+          }
+          name="Album baz"
+          onClick={[Function]}
+        />
+      </Col>
+    </Row>
+  </Container>
+</Fragment>
+`;
+
+exports[`Musics renders without crashing given the required props 1`] = `
+<Container>
+  <Row>
+    <Music
+      id="5BIMPccDwShpXq784RJlJp"
+      key="5BIMPccDwShpXq784RJlJp"
+      name="Enter Sandman"
+      onClick={[Function]}
+      time={331573}
+      trackNumber={1}
+    />
+    <Music
+      id="1Ug98CRiQYu7wiSym4uLY4"
+      key="1Ug98CRiQYu7wiSym4uLY4"
+      name="Sad But True"
+      onClick={[Function]}
+      time={324560}
+      trackNumber={2}
+    />
+  </Row>
+</Container>
+`;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Text } from '../../typography';
-import { Content, Image, Infos, Audio } from './style';
+import { Content, Image, Infos, Audio, PlayerComponent } from './style';
 import { Props } from './types';
 import { Image as ImageType, Artist } from '../../list/Albums/types';
 
@@ -26,14 +26,14 @@ const Player = ({ images, name, artists, onClick, preview }: Props): JSX.Element
             <Image src={urlImage(images)} />
 
             <Infos>
-                <Text type="subtitle">
-                    <>{name}</>
-                </Text>
-                <Text type="regular">
-                    <>{nameArtist(artists)}</>
-                </Text>
+                <Text type="subtitle">{name}</Text>
+                <Text type="regular">{nameArtist(artists)}</Text>
 
-                {preview && <Audio src={preview} preload="auto" controls autoPlay controlsList="nodownload" />}
+                {preview && (
+                    <PlayerComponent>
+                        <Audio src={preview} preload="auto" controls autoPlay controlsList="nodownload" />
+                    </PlayerComponent>
+                )}
             </Infos>
         </Content>
     );

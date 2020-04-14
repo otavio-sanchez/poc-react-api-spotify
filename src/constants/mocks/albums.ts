@@ -1,4 +1,6 @@
-const albums = [
+import { Album } from '../../components/list/Albums/types';
+
+const albums: Album[] = [
     {
         images: [
             {

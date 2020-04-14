@@ -22,6 +22,7 @@ const RowContent = styled.div<{
   position: relative;
   display: grid;
   grid-column-gap: 10px;
+  align-items: start;
   ${({ gridTemplateColumns }): string => gridTemplateColumns && `grid-template-columns: ${gridTemplateColumns};`}
   grid-row-gap: ${({ spacingRow }): string => (spacingRow ? `${spacingRow}px` : '10px')};
   grid-column-gap: ${({ spacingColumn }): string => (spacingColumn ? `${spacingColumn}px` : '10px')}; 

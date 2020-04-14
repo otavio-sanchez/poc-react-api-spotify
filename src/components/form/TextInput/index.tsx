@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Input, Line, InputWrapper } from './style';
 import { useSpring } from 'react-spring';
 import { Props } from './types';
-import { Label } from '../../typography';
+import { Text } from '../../typography';
 
 const TextInput = ({ label, placeholder, onChange, name, type }: Props): JSX.Element => {
     const [focused, setFocused] = React.useState(false);
@@ -14,9 +14,7 @@ const TextInput = ({ label, placeholder, onChange, name, type }: Props): JSX.Ele
 
     return (
         <InputWrapper>
-            <Label>
-                <>{label}</>
-            </Label>
+            <Text type="label">{label}</Text>
             <Input
                 focused={focused}
                 placeholder={placeholder ? placeholder : 'Digite aqui...'}

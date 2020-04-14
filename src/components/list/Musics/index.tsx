@@ -24,9 +24,7 @@ const Musics = ({ data, onClickItem }: Props): JSX.Element => {
                         />
                     ))
                 ) : (
-                    <Text>
-                        <>Nada encontrado.</>
-                    </Text>
+                    <Text>Nada encontrado.</Text>
                 )}
             </Row>
         </Container>

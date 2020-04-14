@@ -1,13 +1,19 @@
 import styled, { keyframes } from 'styled-components';
 
+const opacityAnimation = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
+
 const Content = styled.div`
-    transition: opacity ease-in-out 0.5s;
+    animation: ${opacityAnimation} 1s linear;
     width: 100%;
     cursor: pointer;
-    &:hover {
-        transition: opacity ease-in-out 0.5s;
-        opacity: 50%;
-    }
 `;
 
 const Image = styled.div<{ src: string; height?: number }>`
@@ -15,6 +21,13 @@ const Image = styled.div<{ src: string; height?: number }>`
     height: ${({ height }): number => (height ? height : 250)}px;
     background-image: url('${({ src }): string => src}');
     background-size: cover;    
+    transition: opacity ease-in-out 0.5s;
+    background-position: center;
+    opacity: 1;
+    &:hover {
+        transition: opacity ease-in-out 0.5s;
+        opacity: 0.5;
+    }
 `;
 
 const Infos = styled.div`

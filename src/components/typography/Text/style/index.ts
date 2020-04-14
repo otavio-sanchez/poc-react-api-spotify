@@ -24,4 +24,13 @@ const Default = styled.span<{ type?: string }>`
     color: ${colors.light};
 `;
 
-export { TitleLarge, SubTitle, Regular, Default };
+const Label = styled.label<{ type?: string }>`
+    font-size: ${sizes.font.fontSizeMedium}px;
+    color: ${colors.light};
+
+    @media (max-width: ${sizes.screen.tabletWidth + 1}px) {
+        font-size: ${sizes.font.fontSizeSmall}px;
+    }
+`;
+
+export { TitleLarge, SubTitle, Regular, Default, Label };

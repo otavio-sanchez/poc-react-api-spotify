@@ -12,13 +12,9 @@ const Music = ({ name, time, trackNumber, onClick }: Props): JSX.Element => (
                     <>{trackNumber}.</>
                 </Text>
             </TrackNumber>
-            <Text type="default">
-                <>{name}</>
-            </Text>
+            <Text type="default">{name}</Text>
             <Time>
-                <Text type="regular">
-                    <>{millisToMinutesAndSeconds(time)}</>
-                </Text>
+                <Text type="regular">{millisToMinutesAndSeconds(time)}</Text>
             </Time>
         </Infos>
     </Content>

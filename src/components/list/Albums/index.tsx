@@ -41,9 +41,7 @@ const Albums = ({ data, title, height, onClickItem, loading }: Props): JSX.Eleme
                     ) : (
                         <Row columnsDesktop={1} columnsTablet={1} columnsMobile={1} spacingRow={30} spacingColumn={30}>
                             <Col>
-                                <Text>
-                                    <>Nada encontrado.</>
-                                </Text>
+                                <Text>Nada encontrado.</Text>
                             </Col>
                         </Row>
                     )}

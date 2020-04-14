@@ -1,14 +1,40 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
-const Content = styled.article`
+const opacityAnimation = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
+
+const opacityMoveTopAnimation = keyframes`
+  from {
+    opacity: 0;
+    transition:  translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transition:  translateY(0px);
+  }
+`;
+
+const Content = styled.div`
     width: 100%;
     max-width: 400px;
     cursor: pointer;
-    transition: opacity ease-in-out 0.5s;
-    &:hover {
-        transition: opacity ease-in-out 0.5s;
-        opacity: 50%;
-    }
+    animation: ${opacityAnimation} 1s linear;
+`;
+
+const PlayerComponent = styled.div`
+    width: 100%;
+    transition: ${opacityMoveTopAnimation} ease-in-out 0.5s;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 `;
 
 const Image = styled.div<{ src: string }>`
@@ -16,6 +42,7 @@ const Image = styled.div<{ src: string }>`
     height: 400px;
     background-image: url('${({ src }): string => src}');
     background-size: cover;
+    background-position: center;
 `;
 
 const Infos = styled.div`
@@ -29,4 +56,4 @@ const Audio = styled.audio`
     margin-top: 30px;
 `;
 
-export { Content, Image, Infos, Audio };
+export { Content, Image, Infos, Audio, PlayerComponent };
