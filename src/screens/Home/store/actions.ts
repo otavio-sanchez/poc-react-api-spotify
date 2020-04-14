@@ -6,7 +6,6 @@ export const albumsRecent = (albums: Album[]): actionType => ({
     recent: albums && albums.length ? albums.slice(0, 5) : albums,
 });
 
-
 export const albumsAccessed = (albums: Album[]): actionType => ({
     type: type.ALBUMS_ACCESSED,
     accessed: albums,

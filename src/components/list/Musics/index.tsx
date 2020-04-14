@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Props, Music as MusicType } from './types';
-import { Text } from '../../typography';
+import { Text } from '../../texts';
 import { Container, Row } from '../../grid';
 import Music from './components/Music';
 

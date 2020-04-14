@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Props, Album as AlbumType } from './types';
-import { Text } from '../../typography';
+import { Text } from '../../texts';
 import { Container, Row, Col } from '../../grid';
 import { Loading } from '../../../components/layout';
 import Album from './components/Album';
