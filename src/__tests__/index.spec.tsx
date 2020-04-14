@@ -3,7 +3,7 @@ import * as Jest from 'jest';
 import { shallow } from 'enzyme';
 import App from '../App';
 
-describe('Test Title component', () => {
+describe('Test APP', () => {
     it('renders', () => {
         const wrapper = shallow(<App />);
         expect(wrapper.find('div'));

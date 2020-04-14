@@ -23,5 +23,4 @@ const Logo = styled.div`
     width: 50px;
 `;
 
-
 export { HeaderContent, Logo, LogoSpotify };
