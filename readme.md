@@ -1,6 +1,4 @@
-# Front-end Challenge
-
-## Sobre o teste
+# POC React Spotify
 
 É bem simples. Para esse desafio vamos utilizar as API’s do Spotify.
 
